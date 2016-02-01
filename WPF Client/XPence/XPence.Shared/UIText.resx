@@ -1,0 +1,351 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ABOUT_WINDOW_HEADER" xml:space="preserve">
+    <value>About XPense</value>
+  </data>
+  <data name="ACCENT_SELECT_LABEL_TEXT" xml:space="preserve">
+    <value>My Accent</value>
+  </data>
+  <data name="AMOUNT_RANGE_LABEL_TEXT" xml:space="preserve">
+    <value>Amount range</value>
+  </data>
+  <data name="APPEARANCE_SECTION" xml:space="preserve">
+    <value>Appearance</value>
+  </data>
+  <data name="APPEAR_CHANGE_PROMPT" xml:space="preserve">
+    <value>Would you like to save the appearance changes?</value>
+  </data>
+  <data name="APPLIED_FILTER_HEADER_TEXT" xml:space="preserve">
+    <value>Applied filter</value>
+  </data>
+  <data name="APPLY_FILTER_LABEL_TEXT" xml:space="preserve">
+    <value>Apply date filter on expenses</value>
+  </data>
+  <data name="CHANGE_PASSWORD_SECTION_TEXT" xml:space="preserve">
+    <value>Change password</value>
+  </data>
+  <data name="CHANGE_PICTURE_BUTTON_TEXT" xml:space="preserve">
+    <value>Change</value>
+  </data>
+  <data name="CHART_HEADER_TEXT" xml:space="preserve">
+    <value>Need vs. Want</value>
+  </data>
+  <data name="CHART_SEERIES_TEXT" xml:space="preserve">
+    <value>Expense type</value>
+  </data>
+  <data name="CHART_SUB_HEADER_TEXT" xml:space="preserve">
+    <value>The graph gives a breakup of need vs want.</value>
+  </data>
+  <data name="DELETING_TRANS_WAIT_MSG" xml:space="preserve">
+    <value>Deleting transaction(s)...</value>
+  </data>
+  <data name="ERROR_OCCURED_MSG" xml:space="preserve">
+    <value>Sorry! Some error occurred.</value>
+  </data>
+  <data name="EXPENSE_VIEW_HEADER" xml:space="preserve">
+    <value>Expenses</value>
+  </data>
+  <data name="FILTER_BUTTON_TEXT" xml:space="preserve">
+    <value>Filter</value>
+  </data>
+  <data name="FILTER_BY_USER_LABEL_TEXT" xml:space="preserve">
+    <value>Filter by user</value>
+  </data>
+  <data name="FILTER_HEADER_TEXT" xml:space="preserve">
+    <value>Filter</value>
+  </data>
+  <data name="FILTER_ON_AMOUNT_LABEL_TXT" xml:space="preserve">
+    <value>Filter on amount: </value>
+  </data>
+  <data name="FILTER_ON_DATE_LABEL_TXT" xml:space="preserve">
+    <value>Filter on dates: </value>
+  </data>
+  <data name="FILTER_ON_USER_LABEL_TXT" xml:space="preserve">
+    <value>Filter on user: </value>
+  </data>
+  <data name="FROM_LABEL_TEXT" xml:space="preserve">
+    <value>From</value>
+  </data>
+  <data name="GETTING_TRANS_WAIT_MSG" xml:space="preserve">
+    <value>Getting transactions...</value>
+  </data>
+  <data name="GETTING_USERS_WAIT_MSG" xml:space="preserve">
+    <value>Getting users...</value>
+  </data>
+  <data name="GRAPH_VIEW_HEADER_TEXT" xml:space="preserve">
+    <value>Break up</value>
+  </data>
+  <data name="GRID_AMOUNT_HEADER_TEXT" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="GRID_CREATED_BY" xml:space="preserve">
+    <value>Created by</value>
+  </data>
+  <data name="GRID_DATE_HEADER_TEXT" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="GRID_DESC_HEADER_TEXT" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="GRID_FLOW_HEADER_TEXT" xml:space="preserve">
+    <value>Flow</value>
+  </data>
+  <data name="GRID_LAST_MODIFIED_BY" xml:space="preserve">
+    <value>Last modified by</value>
+  </data>
+  <data name="GRID_PURP_HEADER_TEXT" xml:space="preserve">
+    <value>Purpose</value>
+  </data>
+  <data name="HELP_WINDOW_HEADER" xml:space="preserve">
+    <value>About XPense</value>
+  </data>
+  <data name="HOME_VIEW_HEADER" xml:space="preserve">
+    <value>XPence Home</value>
+  </data>
+  <data name="IMAGE_PICKER_WINDOW_TITLE" xml:space="preserve">
+    <value>Pick an image.</value>
+  </data>
+  <data name="LOGIN_BUTTON_TEXT" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="LOGIN_SCREEN_HEADER" xml:space="preserve">
+    <value>Login to XPence</value>
+  </data>
+  <data name="MANAGE_VIEW_HEADER" xml:space="preserve">
+    <value>Manage</value>
+  </data>
+  <data name="MESSAGE_BOX_AFF_BUT_TEXT" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="MESSAGE_BOX_NEG_BUT_TEXT" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="NAME_LABEL_TXT" xml:space="preserve">
+    <value>Name:</value>
+  </data>
+  <data name="NEW_PASSOWRD_LABEL_TEXT" xml:space="preserve">
+    <value>New password</value>
+  </data>
+  <data name="NO_DATA_EXISTS_MSG" xml:space="preserve">
+    <value>No data exists.</value>
+  </data>
+  <data name="OFF_LABEL_TEXT" xml:space="preserve">
+    <value>Off</value>
+  </data>
+  <data name="OLD_PASSWORD_LABEL_TEXT" xml:space="preserve">
+    <value>Old password</value>
+  </data>
+  <data name="ON_LABEL_TEXT" xml:space="preserve">
+    <value>On</value>
+  </data>
+  <data name="PASSWORD_LABEL_TEXT" xml:space="preserve">
+    <value>Password :</value>
+  </data>
+  <data name="REENTER_NEW_PASSOWRD_LABEL_TEXT" xml:space="preserve">
+    <value>Re enter new password</value>
+  </data>
+  <data name="SAVING_TRANS_WAIT_MSG" xml:space="preserve">
+    <value>Saving transaction...</value>
+  </data>
+  <data name="SAVING_USER_WAIT_MSG" xml:space="preserve">
+    <value>Saving user...</value>
+  </data>
+  <data name="SETTINGS_VIEW_HEADER" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="THEME_SELECT_LABEL_TEXT" xml:space="preserve">
+    <value>My Theme</value>
+  </data>
+  <data name="TOTAL_EXPENDITURE_LABEL_TXT" xml:space="preserve">
+    <value>Total Expenditure:</value>
+  </data>
+  <data name="TOTAL_INCOME_LABEL_TXT" xml:space="preserve">
+    <value>Total Income:</value>
+  </data>
+  <data name="TO_LABEL_TEXT" xml:space="preserve">
+    <value>To</value>
+  </data>
+  <data name="TP_CHANGE_PICTURE" xml:space="preserve">
+    <value>Choose a new picture.</value>
+  </data>
+  <data name="TP_DELETE_TRANS" xml:space="preserve">
+    <value>Delete transaction(s).</value>
+  </data>
+  <data name="TP_FILTER_TRANS" xml:space="preserve">
+    <value>Filter transactions.</value>
+  </data>
+  <data name="TP_GOTO_HOME_BUTTON" xml:space="preserve">
+    <value>Go to home.</value>
+  </data>
+  <data name="TP_INFO" xml:space="preserve">
+    <value>About XPence.</value>
+  </data>
+  <data name="TP_LOGIN_BUTTON" xml:space="preserve">
+    <value>Login.</value>
+  </data>
+  <data name="TP_NEW_TRANS" xml:space="preserve">
+    <value>Add a new transaction.</value>
+  </data>
+  <data name="TP_NEW_USER" xml:space="preserve">
+    <value>Add new user.</value>
+  </data>
+  <data name="TP_REFRESH_USER" xml:space="preserve">
+    <value>Refresh the user list.</value>
+  </data>
+  <data name="TP_SAVE_TRANS" xml:space="preserve">
+    <value>Save transaction.</value>
+  </data>
+  <data name="TP_SAVE_USER" xml:space="preserve">
+    <value>Save a user.</value>
+  </data>
+  <data name="TP_SETTINGS" xml:space="preserve">
+    <value>Settings.</value>
+  </data>
+  <data name="TRANSACTIONS" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TRANS_AMOUNT_LABEL_TXT" xml:space="preserve">
+    <value>Amount:</value>
+  </data>
+  <data name="TRANS_DATE_LABEL_TXT" xml:space="preserve">
+    <value>Date:</value>
+  </data>
+  <data name="TRANS_DESC_LABEL_TXT" xml:space="preserve">
+    <value>Description:</value>
+  </data>
+  <data name="TRANS_FLOW_TYPE_LABEL_TEXT" xml:space="preserve">
+    <value>Type:</value>
+  </data>
+  <data name="TRANS_PURPOSE_TYPE_LABEL_TXT" xml:space="preserve">
+    <value>Purpose:</value>
+  </data>
+  <data name="USERNAME_LABEL_TEXT" xml:space="preserve">
+    <value>Username :</value>
+  </data>
+  <data name="USER_LABEL_TEXT" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="USER_ROLE_LABEL_TEXT" xml:space="preserve">
+    <value>Role:</value>
+  </data>
+  <data name="WAIT_SCREEN_HEADER" xml:space="preserve">
+    <value>Please wait</value>
+  </data>
+</root>

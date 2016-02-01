@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D45E0826-D44E-4CF1-BDCD-AEBA0CDE7A94}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>XPence.ViewModels</RootNamespace>
+    <AssemblyName>XPence.ViewModels</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <BaseIntermediateOutputPath>..\..\ObjMatter\</BaseIntermediateOutputPath>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\Output\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AllTransactionViewModel.cs" />
+    <Compile Include="AppData.cs" />
+    <Compile Include="ApplicationViewModel.cs" />
+    <Compile Include="GraphItemViewModel.cs" />
+    <Compile Include="HelpViewModel.cs" />
+    <Compile Include="HomeViewModel.cs" />
+    <Compile Include="ImagePickerViewModel.cs" />
+    <Compile Include="LoginViewModel.cs" />
+    <Compile Include="MainWindowViewModel.cs" />
+    <Compile Include="ManageViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SettingsViewModel.cs" />
+    <Compile Include="TransactionFilterViewModel.cs" />
+    <Compile Include="TransactionViewModel.cs" />
+    <Compile Include="UserViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\XPence.Infrastructure\XPence.Infrastructure.csproj">
+      <Project>{b5506544-bbd8-4d5c-8c50-71a37454ed62}</Project>
+      <Name>XPence.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XPence.Models\XPence.Models.csproj">
+      <Project>{9ee81062-70e9-4539-9568-1d6f90c0921d}</Project>
+      <Name>XPence.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XPence.Shared\XPence.Shared.csproj">
+      <Project>{35bc1af0-ee5f-4726-9016-57fa35fe5f05}</Project>
+      <Name>XPence.Shared</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

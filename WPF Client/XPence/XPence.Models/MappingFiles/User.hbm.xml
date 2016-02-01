@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                           assembly="XPence.Models"
+                           namespace="XPence.Models.DataModels">
+  <!--<class name="User" table="USER_TABLE" lazy="false">
+    <id name="UserId" >
+      <column name="USEER_ID" not-null="true" />
+      <generator class="identity" />
+    </id>
+    <property name="Name" column="NAME"/>
+    <property name="Username" column="USER_NAME" unique-key="UN_Username"/>
+    <property name="EncryptedPassword" column="ENCRYPTED_PASSWORD"/>
+    <property name="Role" column="USER_ROLE"/>
+    <property name="SelectedTheme" column="SELECTED_THEME"/>
+    <property name="SelectedAccent" column="SELECTED_ACCENT"/>
+  </class>-->
+
+  <class name="User" table="XPENCE_USER_TABLE" lazy="false">
+    <id name="UserId" >
+      <column name="USER_ID" not-null="true" />
+      <generator class="identity" />
+    </id>
+    <property name="Name" column="NAME"/>
+    <property name="Username" column="USER_NAME" unique-key="UN_Username"/>
+    <property name="EncryptedPassword" column="ENCRYPTED_PASSWORD"/>
+    <property name="Role" column="USER_ROLE"/>
+    <property name="SelectedTheme" column="SELECTED_THEME"/>
+    <property name="SelectedAccent" column="SELECTED_ACCENT"/>
+    <property name="Picture" column="PICTURE"/>
+  </class>
+</hibernate-mapping>

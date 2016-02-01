@@ -1,0 +1,49 @@
+﻿<!--PROJECT : XPence
+PROJECT DESCRIPTION : A metro style, smart client expense tracking software.
+AUTHOR : Siddhartha S
+DISCLAIMER : This code is licensed under CPOL. You are free to use this in your project.
+The author takes no liabilities for any damage caused because of this code. Use at your own risk.-->
+<UserControl x:Class="XPence.Views.UserEmblemView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:apex="clr-namespace:Apex.Controls;assembly=Apex"
+             xmlns:Shared="clr-namespace:XPence.Shared;assembly=XPence.Shared"
+             xmlns:Converters="clr-namespace:XPence.Converters">
+    <UserControl.Resources>
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="Margin" Value="10,0,5,5"/>
+            <Setter Property="FontSize" Value="14"/>
+        </Style>
+        <!--Converter-->
+        <Converters:ImageToBinaryConverter x:Key="imageToBinaryCnv"/>
+    </UserControl.Resources>
+    <apex:ApexGrid Columns="Auto,*">
+
+        <Image Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" Source="{Binding Picture, Converter={StaticResource imageToBinaryCnv}}"
+            Height="50" Width="50" >
+            <!--Place holder for the user picture.-->
+        </Image>
+        <StackPanel Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" >
+            <DockPanel>
+                <Path x:Name="roleLogoFigure" Width="15" Height="15" Margin="3" Stretch="Fill" 
+                      Fill="{DynamicResource BlackBrush}" DockPanel.Dock="Right">
+                    <Path.Style>
+                        <Style TargetType="{x:Type Path}">
+                            <Setter Property="Data" Value="{StaticResource AdminFigure}"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Role}" Value="{x:Static Shared:UserRole.Admin}">
+                                    <Setter Property="Data" Value="{StaticResource AdminFigure}"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Role}" Value="{x:Static Shared:UserRole.Normal}">
+                                    <Setter Property="Data" Value="{StaticResource NormalUserFigure}"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Path.Style>
+                </Path>
+                <TextBlock FontWeight="Bold" Text="{Binding Username}"/>
+            </DockPanel>
+            <TextBlock x:Name="txtName" Text="{Binding Name}" />
+        </StackPanel>
+    </apex:ApexGrid>
+</UserControl>

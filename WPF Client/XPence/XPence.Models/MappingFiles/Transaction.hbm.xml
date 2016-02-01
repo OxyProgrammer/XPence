@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                           assembly="XPence.Models"
+                           namespace="XPence.Models.DataModels">
+  <class name="Transaction" table="TRANSACTION_TABLE" lazy="false">
+    <id name="TransactionId" >
+      <column name="TRANSACTION_ID" not-null="true" />
+      <generator class="identity" />
+    </id>
+
+    <property name="TransactionDate" column="TRANSACTION_DATE"/>
+    <property name="Amount" column="AMOUNT"/>
+    <property name="Description" column="DESCRIPTION"/>
+    <property name="PurposeType" column="PURPOSE_TYPE"/>
+    <property name="FlowType" column="FLOW_TYPE"/>
+    <property name="LastModifiedBy" column="LAST_MODIFIED_BY"/>
+    <property name="CreatedBy" column="CREATED_BY"/>
+  </class>
+
+</hibernate-mapping>

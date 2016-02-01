@@ -1,0 +1,43 @@
+﻿<!--PROJECT : XPence
+PROJECT DESCRIPTION : A metro style, smart client expense tracking software.
+AUTHOR : Siddhartha S
+DISCLAIMER : This code is licensed under CPOL. You are free to use this in your project.
+The author takes no liabilities for any damage caused because of this code. Use at your own risk.-->
+<controls:MetroWindow x:Class="XPence.Infrastructure.MessagingService.ModalMessageDialog"
+                    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:apex="clr-namespace:Apex.Controls;assembly=Apex"
+                    xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro" 
+                    Height="200" Width="400" ShowTitleBar="False"
+                    GlowBrush="{DynamicResource AccentColorBrush}" 
+                    ShowMaxRestoreButton="False" ShowMinButton="False" WindowStartupLocation="CenterOwner">
+
+    <apex:ApexGrid Rows="Auto,Auto,*,Auto,Auto" Margin="0,30,0,0" Columns="Auto,*">
+
+        <!--The header-->
+        <TextBlock x:Name="txtHeader" Grid.Row="0" Grid.ColumnSpan="2" FontWeight="Bold" Margin="5"/>
+
+        <!--The header underline-->
+        <Rectangle Grid.Row="1" Grid.ColumnSpan="2" Height="1" Stroke="{DynamicResource AccentColorBrush}"/>
+
+        <!--The body-->
+        <ContentControl x:Name="imageShower" Grid.Row="2" Grid.Column="0" Height="50" Width="50" VerticalAlignment="Top" Margin="10,10,0,0">
+
+        </ContentControl>
+
+        <TextBlock x:Name="txtBody" Grid.Row="2" Grid.Column="1" TextWrapping="Wrap" Margin="10,10,0,0" Text=""/>
+
+        <!--The body underline-->
+        <Rectangle Grid.Row="3" Grid.ColumnSpan="2" Height="1" Stroke="{DynamicResource AccentColorBrush}">
+
+        </Rectangle>
+
+        <!--The buttons-->
+        <DockPanel Grid.Row="4" Grid.ColumnSpan="2" LastChildFill="False" Margin="5">
+            <Button x:Name="btnCancel" Width="75" DockPanel.Dock="Right" Content="Cancel" Click="btnCancel_Click"/>
+            <Button x:Name="btnNo" Width="75" DockPanel.Dock="Right" Content="No" Click="btnNo_Click"/>
+            <Button x:Name="btnYes" Width="75" DockPanel.Dock="Right" Content="Yes" Click="btnYes_Click"/>
+            <Button x:Name="btnOk"  Width="75" DockPanel.Dock="Right" Content="Ok" Click="btnOk_Click"/>
+        </DockPanel>
+    </apex:ApexGrid>
+</controls:MetroWindow>

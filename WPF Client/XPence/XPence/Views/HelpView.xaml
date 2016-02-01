@@ -1,0 +1,47 @@
+﻿<!--PROJECT : XPence
+PROJECT DESCRIPTION : A metro style, smart client expense tracking software.
+AUTHOR : Siddhartha S
+DISCLAIMER : This code is licensed under CPOL. You are free to use this in your project.
+The author takes no liabilities for any damage caused because of this code. Use at your own risk.-->
+<UserControl x:Class="XPence.Views.HelpView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:ControlsLib="clr-namespace:XPence.ControlsLib;assembly=XPence.ControlsLib">
+    <UserControl.Resources>
+        <Style BasedOn="{StaticResource FigureOnlyButtonStyle}"
+               TargetType="{x:Type ControlsLib:NavigationButtonControl}"/>
+    </UserControl.Resources>
+    <Grid Height="320" Width="500">
+        <FlowDocumentScrollViewer Background="Transparent" HorizontalScrollBarVisibility="Auto" 
+                                  VerticalScrollBarVisibility="Auto">
+            <FlowDocument FontFamily="{DynamicResource DefaultFont}" FontSize="{DynamicResource NormalFontSize}">
+                <Paragraph>
+                    <Figure Width="200">
+                        <BlockUIContainer Padding="0">
+                            <Image Source="../Resources/Sid.png" Height="150" Width="172"/>
+                        </BlockUIContainer>
+                        <Paragraph>
+                            <StackPanel Orientation="Horizontal">
+                                <ControlsLib:NavigationButtonControl Content="{StaticResource LinkedInFigure}" 
+                                                                     Command="{Binding LaunchWebpageCommand}"
+                                                                     CommandParameter="http://in.linkedin.com/in/siddharthasarkar/"
+                                                                     Height="20" Width="20"/>
+                                <ControlsLib:NavigationButtonControl Content="{StaticResource GooglePlusFigure}" 
+                                                                     Command="{Binding LaunchWebpageCommand}"
+                                                                     CommandParameter="https://plus.google.com/110191511442548920098/posts"
+                                                                     Height="20" Width="20"/>
+                            </StackPanel>
+                        </Paragraph>
+                    </Figure>
+                    XPence is an expense tracker application with bare minimum functionality that sports the metro UI look of Windows 8. It is developed using C# and WPF by Siddhartha S.
+                    <LineBreak />
+                    Sid works with a leading Investment Bank in Mumbai (India). With applications like XPence, Sid wants to revisit the challenges he came across as a WPF-MVVM developer and believes many newbie developers too, come across everyday. He attempts to bring most, if not all, of the problems and their solutions under the same roof.
+                    <LineBreak />
+                    Source code of XPense is available for download at
+                    <Hyperlink NavigateUri="http://www.codeproject.com/">
+                        code project</Hyperlink> .
+                </Paragraph>
+            </FlowDocument>
+        </FlowDocumentScrollViewer>
+    </Grid>
+</UserControl>

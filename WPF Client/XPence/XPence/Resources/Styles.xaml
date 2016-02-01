@@ -1,0 +1,256 @@
+﻿<!--PROJECT : XPence
+PROJECT DESCRIPTION : A metro style, smart client expense tracking software.
+AUTHOR : Siddhartha S
+DISCLAIMER : This code is licensed under CPOL. You are free to use this in your project.
+The author takes no liabilities for any damage caused because of this code. Use at your own risk.-->
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:nativeControls="clr-namespace:XPence.Controls"
+                    xmlns:chart="clr-namespace:De.TorstenMandelkow.MetroChart;assembly=De.TorstenMandelkow.MetroChart"
+                    xmlns:ControlsLib="clr-namespace:XPence.ControlsLib;assembly=XPence.ControlsLib">
+    <!--Converters-->
+
+    <SolidColorBrush x:Key="ButtonBarBackGroundBrush" Color="#FF595959"/>
+    <!--Styles-->
+    <Style TargetType="{x:Type nativeControls:AnimatedContentControl}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type nativeControls:AnimatedContentControl}">
+                    <Grid>
+                        <ContentPresenter 
+                        Content="{TemplateBinding Content}" 
+                        x:Name="PART_MainContent" />
+                        <Rectangle x:Name="PART_PaintArea" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="MetroButtonStyle" TargetType="{x:Type Button}">
+        <Setter Property="Foreground" Value="{DynamicResource AccentColorBrush}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid x:Name="LayoutRoot" Background="Transparent" RenderTransformOrigin="0.5,0.5">
+                        <Grid.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Grid.RenderTransform>
+                        <Viewbox>
+                            <Grid x:Name="backgroundGrid" Width="48" Height="48" Visibility="Visible">
+                                <Path x:Name="arrow" Data="{TemplateBinding Content}"
+										Stretch="Uniform" Fill="{TemplateBinding Foreground}" Stroke="{TemplateBinding Foreground}" Width="26" Height="26" StrokeThickness="0.1"/>
+                                <Ellipse x:Name="circle" Fill="Transparent" Stroke="{TemplateBinding Foreground}" 
+                                         Width="40" Height="40" StrokeThickness="2"/>
+                            </Grid>
+                        </Viewbox>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsFocused" Value="True"/>
+                        <Trigger Property="IsDefaulted" Value="True"/>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="RenderTransform" TargetName="LayoutRoot">
+                                <Setter.Value>
+                                    <TransformGroup>
+                                        <ScaleTransform ScaleX="1.1" ScaleY="1.1"/>
+                                        <SkewTransform/>
+                                        <RotateTransform/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Opacity" TargetName="LayoutRoot" Value="0.7"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Fill" Value="#8B8B8B" TargetName="arrow"/>
+                            <Setter Property="Stroke" Value="#8B8B8B" TargetName="circle"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="FigureOnlyButtonStyle" TargetType="{x:Type ControlsLib:NavigationButtonControl}">
+        <Setter Property="Foreground" Value="{DynamicResource AccentColorBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource AccentColorBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ControlsLib:NavigationButtonControl}">
+                    <Grid x:Name="LayoutRoot" Background="Transparent" RenderTransformOrigin="0.5,0.5">
+                        <Grid.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Grid.RenderTransform>
+                        <Viewbox>
+                            <Border x:Name="backgroundGrid" Width="48" Height="48" Background="Transparent" 
+                                    BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                                <Path x:Name="arrow" Data="{TemplateBinding Content}"
+										Stretch="Uniform" Fill="{TemplateBinding Foreground}" 
+                                      Stroke="{TemplateBinding Foreground}" 
+										StrokeThickness="0.1"/>
+                            </Border>
+                        </Viewbox>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsFocused" Value="True"/>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="RenderTransform" TargetName="LayoutRoot">
+                                <Setter.Value>
+                                    <TransformGroup>
+                                        <ScaleTransform ScaleX="1.1" ScaleY="1.1"/>
+                                        <SkewTransform/>
+                                        <RotateTransform/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Opacity" TargetName="LayoutRoot" Value="0.7"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Fill" Value="#8B8B8B" TargetName="arrow"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="MetroToggleButtonStyle" TargetType="{x:Type ToggleButton}">
+        <Setter Property="Foreground" Value="{DynamicResource AccentColorBrush}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <Grid x:Name="LayoutRoot" Background="Transparent" RenderTransformOrigin="0.5,0.5">
+                        <Grid.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Grid.RenderTransform>
+                        <Viewbox>
+                            <Grid x:Name="backgroundGrid" Width="48" Height="48" Visibility="Visible">
+                                <Ellipse x:Name="circle" Fill="Transparent" Stroke="{TemplateBinding Foreground}" 
+                                         Width="40" Height="40" StrokeThickness="2"/>
+                                <Path x:Name="arrow" Data="{TemplateBinding Content}" Margin="5"
+										Stretch="Uniform" Fill="{TemplateBinding Foreground}" Stroke="{TemplateBinding Foreground}" Width="26" Height="26" StrokeThickness="0.1"/>
+                            </Grid>
+                        </Viewbox>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsFocused" Value="True"/>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter Property="Fill" TargetName="circle" Value="{DynamicResource GrayBrush2}"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="RenderTransform" TargetName="LayoutRoot">
+                                <Setter.Value>
+                                    <TransformGroup>
+                                        <ScaleTransform ScaleX="1.1" ScaleY="1.1"/>
+                                        <SkewTransform/>
+                                        <RotateTransform/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Opacity" TargetName="LayoutRoot" Value="0.7"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Fill" Value="#8B8B8B" TargetName="arrow"/>
+                            <Setter Property="Stroke" Value="#8B8B8B" TargetName="circle"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="TileButtonStyle" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="{DynamicResource AccentColorBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource HighlightBrush}"/>
+        <Setter Property="Height" Value="150"/>
+        <Setter Property="Width" Value="150"/>
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="BorderThickness" Value="5"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid x:Name="LayoutGrid">
+                        <Grid.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Grid.RenderTransform>
+                        <Rectangle x:Name="rectangle" Fill="{TemplateBinding Background}" 
+                                   Stroke="{TemplateBinding BorderBrush}" StrokeThickness="{TemplateBinding BorderThickness}"/>
+                        <Path x:Name="path" Data="{TemplateBinding Content}" 
+							Stretch="Uniform" Fill="#FFFFFFFF" Width="68" Height="68" 
+                              Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                            <Path.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform ScaleY="1" ScaleX="1"/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="0"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Path.RenderTransform>
+                        </Path>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsFocused" Value="True"/>
+                        <Trigger Property="IsDefaulted" Value="True"/>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Opacity" TargetName="rectangle" Value="0.7"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="RenderTransform" TargetName="LayoutGrid">
+                                <Setter.Value>
+                                    <TransformGroup>
+                                        <ScaleTransform ScaleX="0.95" ScaleY="0.95"/>
+                                        <SkewTransform/>
+                                        <RotateTransform/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="Opacity" TargetName="rectangle" Value="0.7"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False"/>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type chart:PieChart}">
+        <Setter Property="FontSize" Value="{DynamicResource NormalFontSize}"/>
+        <Setter Property="ChartTitleVisibility" Value="Visible"/>
+        <Setter Property="ChartLegendVisibility" Value="Visible"/>
+        <Setter Property="Palette" Value="{DynamicResource ChartPalette}"/>
+        <Setter Property="SelectedBrush" Value="{DynamicResource PieSelectionBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource ChartBackground}"/>
+        <Setter Property="Foreground" Value="{DynamicResource ChartForeground}"/>
+    </Style>
+
+</ResourceDictionary>

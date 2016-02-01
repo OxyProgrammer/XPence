@@ -1,0 +1,48 @@
+﻿<!--PROJECT : XPence
+PROJECT DESCRIPTION : A metro style, smart client expense tracking software.
+AUTHOR : Siddhartha S
+DISCLAIMER : This code is licensed under CPOL. You are free to use this in your project.
+The author takes no liabilities for any damage caused because of this code. Use at your own risk.-->
+<UserControl x:Class="XPence.Views.FilterVisualView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:apex="clr-namespace:Apex.Controls;assembly=Apex"
+             xmlns:Shared="clr-namespace:XPence.Shared;assembly=XPence.Shared"
+             xmlns:Converters="clr-namespace:XPence.Converters">
+    <UserControl.Resources>
+        <Converters:EmptyStringConverter x:Key="emptyStringConv"/>
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="Margin" Value="10,5,0,0"/>
+            <Setter Property="Foreground" Value="{DynamicResource BlackColorBrush}"/>
+            <Setter Property="FontSize" Value="{DynamicResource ContentFontSize}"/>
+        </Style>
+    </UserControl.Resources>
+    <apex:ApexGrid Rows="Auto,Auto,Auto,Auto" Columns="Auto,Auto,*,Auto">
+
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="{x:Static Shared:UIText.APPLIED_FILTER_HEADER_TEXT}" FontSize="14"/>
+
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="{x:Static Shared:UIText.FILTER_ON_DATE_LABEL_TXT}"/>
+        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding FilterDisplayOnDates,Converter={StaticResource emptyStringConv}}"/>
+
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="{x:Static Shared:UIText.FILTER_ON_AMOUNT_LABEL_TXT}"/>
+        <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding FilterDisplayOnAmount,Converter={StaticResource emptyStringConv}}"/>
+
+        <TextBlock Grid.Row="3" Grid.Column="0" Text="{x:Static Shared:UIText.FILTER_ON_USER_LABEL_TXT}" Margin="10,5,0,5"/>
+        <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding FilterDisplayOnUser,Converter={StaticResource emptyStringConv}}" Margin="10,5,0,5"/>
+
+        <apex:ApexGrid Grid.Row="0" Grid.Column="3" Grid.RowSpan="4" Columns="Auto,Auto" Rows="*,Auto,Auto,*">
+            <apex:ApexGrid.Resources>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Margin" Value="10,5,0,0"/>
+                    <Setter Property="Foreground" Value="{DynamicResource BlackColorBrush}"/>
+                    <Setter Property="FontSize" Value="{DynamicResource NormalFontSize}"/>
+                </Style>
+            </apex:ApexGrid.Resources>
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="{x:Static Shared:UIText.TOTAL_EXPENDITURE_LABEL_TXT}"/>
+            <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding TotalExpenditure}" MinHeight="20" Margin="10,5,5,0"/>
+
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="{x:Static Shared:UIText.TOTAL_INCOME_LABEL_TXT}"/>
+            <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding TotalIncome}" MinHeight="20" Margin="10,5,5,0"/>
+        </apex:ApexGrid>
+    </apex:ApexGrid>
+</UserControl>

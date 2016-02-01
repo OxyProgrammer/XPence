@@ -1,0 +1,13 @@
+# Ignore everything
+
+#except for these
+
+
+
+*.vshost.exe
+ObjMatter/
+_ReSharper.XPence/
+*.user
+*.suo
+obj/
+bin/

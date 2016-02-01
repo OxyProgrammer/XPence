@@ -1,0 +1,50 @@
+﻿<!--PROJECT : XPence
+PROJECT DESCRIPTION : A metro style, smart client expense tracking software.
+AUTHOR : Siddhartha S
+DISCLAIMER : This code is licensed under CPOL. You are free to use this in your project.
+The author takes no liabilities for any damage caused because of this code. Use at your own risk.-->
+<UserControl x:Class="XPence.Views.ApplicationView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:apex="clr-namespace:Apex.Controls;assembly=Apex"
+             xmlns:nativeControls="clr-namespace:XPence.Controls"
+             xmlns:ViewModels="clr-namespace:XPence.ViewModels;assembly=XPence.ViewModels"
+             xmlns:Views="clr-namespace:XPence.Views" 
+             xmlns:Shared="clr-namespace:XPence.Shared;assembly=XPence.Shared"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="boolToVis"/>
+
+        <DataTemplate DataType="{x:Type ViewModels:HomeViewModel}">
+            <Views:HomeView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type ViewModels:ManageViewModel}">
+            <Views:ManageView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type ViewModels:AllTransactionViewModel}">
+            <Views:AllTransactionView/>
+        </DataTemplate>
+
+    </UserControl.Resources>
+    <apex:ApexGrid Rows="Auto,Auto,Auto,*">
+        <DockPanel Grid.Row="0" LastChildFill="False">
+            <Grid DockPanel.Dock="Left" Height="50" Width="50">
+                <Button Command="{Binding NavigateBackCommand}"
+                    Visibility="{Binding SelectedWorkspace.CanGoBack, Converter={StaticResource boolToVis}}"
+                        ToolTip="{x:Static Shared:UIText.TP_GOTO_HOME_BUTTON}"
+                    Content="{StaticResource BackArrowFigure}" Margin="5" Style="{StaticResource MetroButtonStyle}"/>
+            </Grid>
+            <TextBlock Text="{Binding SelectedWorkspace.DisplayName}" VerticalAlignment="Center"
+                       Foreground="{DynamicResource AccentColorBrush}"
+                       Margin="5" FontSize="{DynamicResource SubHeaderFontSize}" DockPanel.Dock="Left"/>
+        </DockPanel>
+        <Views:UserEmblemView Grid.Row="1" HorizontalAlignment="Right" DataContext="{Binding LoggedInUser}"/>
+        <Rectangle Height="2" Grid.Row="2" Fill="{DynamicResource AccentColorBrush}" 
+                   Stroke="{DynamicResource AccentColorBrush}" HorizontalAlignment="Stretch"
+                   Margin="5,2"/>
+        <nativeControls:AnimatedContentControl Grid.Row="3" Content="{Binding SelectedWorkspace}"/>
+    </apex:ApexGrid>
+</UserControl>

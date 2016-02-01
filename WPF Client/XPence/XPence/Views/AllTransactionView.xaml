@@ -1,0 +1,124 @@
+﻿<!--PROJECT : XPence
+PROJECT DESCRIPTION : A metro style, smart client expense tracking software.
+AUTHOR : Siddhartha S
+DISCLAIMER : This code is licensed under CPOL. You are free to use this in your project.
+The author takes no liabilities for any damage caused because of this code. Use at your own risk.-->
+<UserControl x:Class="XPence.Views.AllTransactionView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:apex="clr-namespace:Apex.Controls;assembly=Apex"
+             xmlns:Shared="clr-namespace:XPence.Shared;assembly=XPence.Shared"
+             xmlns:Converters="clr-namespace:XPence.Converters"
+             xmlns:chart="clr-namespace:De.TorstenMandelkow.MetroChart;assembly=De.TorstenMandelkow.MetroChart"
+             xmlns:local="clr-namespace:XPence.Views" xmlns:AttachedBehaviors="clr-namespace:XPence.AttachedMembers"
+             AttachedBehaviors:ElementLoadingBehavior.InitializeDataContextWhenLoaded="True">
+    <UserControl.Resources>
+        <Converters:StringTrimmerConverter MaxLengthAllowed="40" x:Key="trimConverter"/>
+        <!--Converters-->
+        <BooleanToVisibilityConverter x:Key="boolToVis"/>
+        <Converters:NullToBoolConverter x:Key="nullToBool"/>
+        <Converters:TransactionHeaderConverter x:Key="headerTextConv"/>
+        <local:BindingProxy x:Key="proxy" Data="{Binding}" />
+    </UserControl.Resources>
+    <apex:ApexGrid Rows="*,Auto,Auto" Columns="*,Auto" HorizontalAlignment="Stretch">
+
+        <!--The grid-->
+        <DataGrid Grid.Row="0" Grid.Column="0" Margin="5,5,0,0" HorizontalAlignment="Stretch"
+                  VerticalAlignment="Stretch" SelectedItem="{Binding SelectedTransaction}"
+                      FontSize="14" ItemsSource="{Binding Transactions}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridCheckBoxColumn Width="20" Binding="{Binding IsMarked}" />
+                <DataGridTextColumn Width="Auto"  Header="{x:Static Shared:UIText.GRID_DATE_HEADER_TEXT}" IsReadOnly="True" Binding="{Binding TransactionDate,StringFormat=\{0:dd-MMM-yyyy \}}"/>
+                <DataGridTextColumn Width="Auto"  Header="{x:Static Shared:UIText.GRID_AMOUNT_HEADER_TEXT}" IsReadOnly="True" Binding="{Binding Amount}"/>
+                <DataGridTextColumn Width="Auto"  Header="{x:Static Shared:UIText.GRID_PURP_HEADER_TEXT}" IsReadOnly="True" Binding="{Binding PurposeType}"/>
+                <DataGridTemplateColumn Width="Auto"  Header="{x:Static Shared:UIText.GRID_FLOW_HEADER_TEXT}" IsReadOnly="True">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <DockPanel>
+                                <Path x:Name="figurePath" DockPanel.Dock="Left" Stretch="Uniform" Width="15" Height="15" Margin="5" RenderTransformOrigin="0.5,0.5">
+                                    <Path.RenderTransform>
+                                        <TransformGroup>
+                                            <TransformGroup.Children>
+                                                <RotateTransform Angle="3" />
+                                                <ScaleTransform ScaleX="1" ScaleY="1" />
+                                            </TransformGroup.Children>
+                                        </TransformGroup>
+                                    </Path.RenderTransform>
+                                </Path>
+                                <ContentPresenter Margin="0,5,5,5" Content="{Binding FlowType}"/>
+                            </DockPanel>
+                            <DataTemplate.Triggers>
+                                <DataTrigger Binding="{Binding FlowType}" Value="{x:Static Shared:TransactionFlowType.Expenditure}">
+                                    <Setter Property="Data" TargetName="figurePath" Value="{StaticResource ExpenditureFigure}"/>
+                                    <Setter Property="Fill" TargetName="figurePath" Value="Red"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding FlowType}" Value="{x:Static Shared:TransactionFlowType.Income}">
+                                    <Setter Property="Data" TargetName="figurePath" Value="{StaticResource IncomeFigure}"/>
+                                    <Setter Property="Fill" TargetName="figurePath" Value="Green"/>
+                                </DataTrigger>
+                            </DataTemplate.Triggers>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Width="*" Header="{x:Static Shared:UIText.GRID_DESC_HEADER_TEXT}" IsReadOnly="True" Binding="{Binding Description,Converter={StaticResource trimConverter}}"/>
+                <DataGridTextColumn Width="Auto" Header="{x:Static Shared:UIText.GRID_LAST_MODIFIED_BY}" IsReadOnly="True" Binding="{Binding LastModifiedBy}" 
+                        Visibility="{Binding Data.IsUserAdmin, Source={StaticResource proxy}, Converter={StaticResource boolToVis}}"/>
+                <DataGridTextColumn Width="Auto" Header="{x:Static Shared:UIText.GRID_CREATED_BY}" IsReadOnly="True" Binding="{Binding CreatedBy}"
+                        Visibility="{Binding Data.IsUserAdmin,Source={StaticResource proxy}, Converter={StaticResource boolToVis}}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Border Grid.Row="1" Grid.Column="0" Margin="5,3,0,3" HorizontalAlignment="Stretch" Background="{DynamicResource GrayBrush2}">
+            <local:FilterVisualView DockPanel.Dock="Left" HorizontalAlignment="Stretch"/>
+        </Border>
+
+        <!--The button bar-->
+        <Border Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Height="50" Background="{StaticResource ButtonBarBackGroundBrush}">
+            <DockPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" LastChildFill="False">
+
+                <DockPanel.Resources>
+                    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource MetroButtonStyle}">
+                        <Setter Property="Foreground" Value="{DynamicResource WhiteBrush}"/>
+                        <Setter Property="DockPanel.Dock" Value="RIght"/>
+                    </Style>
+                </DockPanel.Resources>
+
+                <ToggleButton Width="40" Height="40" Margin="5" VerticalAlignment="Center" DockPanel.Dock="Right"
+                                  IsChecked="{Binding FilterViewModel.IsOpen}" Style="{DynamicResource MetroToggleButtonStyle}" 
+                                  Foreground="{DynamicResource WhiteBrush}" ToolTip="{x:Static Shared:UIText.TP_FILTER_TRANS}" Content="{StaticResource FilterFigure}"/>
+                <Button Width="40" Height="40" ToolTip="{x:Static Shared:UIText.TP_NEW_TRANS}" Content="{StaticResource NewFigure}" Command="{Binding AddNewTransactionCommand}"/>
+                <Button Width="40" Height="40" ToolTip="{x:Static Shared:UIText.TP_SAVE_TRANS}" Content="{StaticResource SaveFigure}" Command="{Binding SaveTransactionCommand}"/>
+                <Button Width="40" Height="40" ToolTip="{x:Static Shared:UIText.TP_DELETE_TRANS}" Content="{StaticResource DeleteFigure}" Command="{Binding DeleteTransactionsCommand}"/>
+            </DockPanel>
+        </Border>
+
+        <DockPanel Grid.Row="0" Grid.Column="1" Grid.RowSpan="2">
+            <GroupBox Width="420"
+                      IsEnabled="{Binding Converter={StaticResource nullToBool}}"  
+                      DataContext="{Binding SelectedTransaction, NotifyOnSourceUpdated=True,Mode=OneWay}" DockPanel.Dock="Top">
+                <GroupBox.Header>
+                    <MultiBinding Converter="{StaticResource headerTextConv}">
+                        <Binding Path="TransactionId"/>
+                        <Binding Path="TransactionDate"/>
+                        <Binding Path="Amount"/>
+                    </MultiBinding>
+                </GroupBox.Header>
+                <local:TransactionView />
+            </GroupBox>
+
+            <GroupBox Header="{x:Static Shared:UIText.GRAPH_VIEW_HEADER_TEXT}">
+                <ScrollViewer DockPanel.Dock="Top"  ScrollViewer.VerticalScrollBarVisibility="Auto">
+                    <chart:PieChart ChartTitle="{x:Static Shared:UIText.CHART_HEADER_TEXT}"
+                            ChartSubTitle="{x:Static Shared:UIText.CHART_SUB_HEADER_TEXT}">
+                        <chart:PieChart.Series>
+                            <chart:ChartSeries SeriesTitle="{x:Static Shared:UIText.CHART_SEERIES_TEXT}"
+                                    DisplayMember="Description" ValueMember="Value" ItemsSource="{Binding Path=GraphItems}">
+                            </chart:ChartSeries>
+                        </chart:PieChart.Series>
+                    </chart:PieChart>
+                </ScrollViewer>
+            </GroupBox>
+        </DockPanel>
+
+    </apex:ApexGrid>
+</UserControl>
