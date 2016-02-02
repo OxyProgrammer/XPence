@@ -3,7 +3,7 @@
 #except for these
 
 
-
+Output/
 *.vshost.exe
 ObjMatter/
 _ReSharper.XPence/
