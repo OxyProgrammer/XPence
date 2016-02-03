@@ -11,7 +11,6 @@ Here are a few screenshots to give you an idea how XPence looks.
 ![XPence](Images/CoverPhoto.png)
 
 ###You may crop images and set a dp:
-![XPence](Images/ImageCropperScreenshot.png)
 ![XPence](Images/ManageScreenshot.png)
 
 ## Article
