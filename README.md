@@ -9,7 +9,7 @@ Here are a few screenshots to give you an idea how XPence looks.
 
 ![XPence](Images/Home.png)
 
-###Users dashboard:
+### Users dashboard:
 
 ![XPence](Images/CoverPhoto.png)
 
