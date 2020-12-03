@@ -24,7 +24,7 @@ The author takes no liabilities for any damage caused because of this code. Use 
                             <StackPanel Orientation="Horizontal">
                                 <ControlsLib:NavigationButtonControl Content="{StaticResource LinkedInFigure}" 
                                                                      Command="{Binding LaunchWebpageCommand}"
-                                                                     CommandParameter="http://in.linkedin.com/in/siddharthasarkar/"
+                                                                     CommandParameter="http://in.linkedin.com/in/siddharthasarkar27/"
                                                                      Height="20" Width="20"/>
                                 <ControlsLib:NavigationButtonControl Content="{StaticResource GooglePlusFigure}" 
                                                                      Command="{Binding LaunchWebpageCommand}"

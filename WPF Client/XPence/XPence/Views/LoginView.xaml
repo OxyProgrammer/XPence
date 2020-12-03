@@ -35,7 +35,7 @@ The author takes no liabilities for any damage caused because of this code. Use 
                 <TextBlock Grid.Row="2" Grid.Column="0" Text="{x:Static Shared:UIText.PASSWORD_LABEL_TEXT}" />
                 <PasswordBox Grid.Row="2" Grid.Column="1" Margin="5"  Width="200" 
                              attached:PasswordHelper.Attach="True" 
-                             attached:PasswordHelper.Password="{Binding Password, Mode=TwoWay}"/>
+                             attached:PasswordHelper.Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                 <Button Grid.Row="3" Grid.Column="1" ToolTip="{x:Static Shared:UIText.TP_LOGIN_BUTTON}"
                         Content="{x:Static Shared:UIText.LOGIN_BUTTON_TEXT}" Margin="5" HorizontalAlignment="Right"
                         Command="{Binding TryLogInCommand}"/>
