@@ -5,7 +5,7 @@ Gradually it became a labour of love and a good demonstration of WPF-MVVM.
 ## Screenshots
 Here are a few screenshots to give you an idea how XPence looks.
 
-###Home:
+### Home:
 
 ![XPence](Images/Home.png)
 
@@ -13,7 +13,7 @@ Here are a few screenshots to give you an idea how XPence looks.
 
 ![XPence](Images/CoverPhoto.png)
 
-###You may crop images and set a dp:
+### You may crop images and set a dp:
 
 ![XPence](Images/ManageScreenshot.png)
 
