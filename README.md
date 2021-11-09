@@ -22,6 +22,7 @@
 [![GitHub issues](https://img.shields.io/github/issues/OxyProgrammer/XPence?style=for-the-badge)](https://github.com/OxyProgrammer/XPence/issues)
 [![GitHub forks](https://img.shields.io/github/forks/OxyProgrammer/XPence?style=for-the-badge)](https://github.com/OxyProgrammer/XPence/network)
 [![GitHub stars](https://img.shields.io/github/stars/OxyProgrammer/XPence?style=for-the-badge)](https://github.com/OxyProgrammer/XPence/stargazers)
+[![GitHub license](https://img.shields.io/github/license/OxyProgrammer/XPence?style=for-the-badge)](https://github.com/OxyProgrammer/XPence)
 
 <!-- ABOUT THE PROJECT -->
 
