@@ -105,6 +105,6 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 OxyProgrammer  - oxyprogrammer@gmail.com
 
-Project Link: [https://github.com/OxyProgrammer/manext](https://github.com/OxyProgrammer/manext)
+Project Link: [https://github.com/OxyProgrammer/XPence](https://github.com/OxyProgrammer/XPence)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
