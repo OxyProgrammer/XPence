@@ -1,4 +1,5 @@
-The test data is for the kungfu school of Master Shifu (In case you have watched kungfu master). He himself is the admin and the users are his students. Here is the test data:
+The test data is for the kungfu school of Master Shifu (In case you have watched kungfu master). He himself is the admin and the users are his students.
+Here is the test data:
 S.No	User id		Password (case sensitive)	Role
 _______________________________________________________
 1		masshif1	XPense123					Admin
